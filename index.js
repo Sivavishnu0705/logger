@@ -1,11 +1,12 @@
 const morgan = require('morgan');
-const express = require('express');
+const express = require('express'), bodyParser = require('body-parser');
 const cors = require('cors');
 const commandLineArgs = require('command-line-args');
 const config = require('config');
 const app = express()
 
 app.use(morgan('dev'));
+app.use(bodyParser.json());
 app.use((err, req, res, next) => {
     console.error(err.stack)
     res.status(500).send('Something broke!')
@@ -25,7 +26,7 @@ app.use((err, req, res, next) => {
   })
 
   app.post('/', (req, res) => {
-    res.send('post')
+    res.send('post '+req.body.test)
   })
 
   app.delete('/', (req, res) => {
