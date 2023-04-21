@@ -2,6 +2,7 @@
     "server": {
       "host": "localhost",
       "port": 8081,
-      "url":""
+      "url":"",
+      "rotating_logs_expiry":"1d"
     }
 }
