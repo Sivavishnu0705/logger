@@ -1,7 +1,7 @@
 {
     "server": {
       "host": "localhost",
-      "port": 1,
+      "port": 8081,
       "url":""
     }
 }
