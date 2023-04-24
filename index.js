@@ -4,6 +4,7 @@ const cors = require('cors');
 const commandLineArgs = require('command-line-args');
 const config = require('config');
 const app = express()
+const logger = require('./logger.js');
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -47,6 +48,21 @@ app.use((err, req, res, next) => {
 
   app.use((req, res, next) => {
     console.log('Time:', Date.now())
+    logger.config({
+        dest: {
+            url: "https://host:port/path",
+            headers: {
+                "Content-Type": "etc",
+            },
+        },
+        buffer: {
+            logCount: 100,
+        },
+        logger: {
+            trigger: true ,
+            offsetMs: 5
+        }
+     });
     next()
   })
 
@@ -54,6 +70,7 @@ app.use((err, req, res, next) => {
     res.send('get')
     colouredLog(req,res);
     localLog(req,'get','get');
+    logger.log('deug','get','message_1','msg_2');
   })
  
   app.put('/', (req, res) => {
