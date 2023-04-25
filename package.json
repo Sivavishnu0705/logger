@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "circular-json": "^0.5.9",
     "colors": "^1.4.0",
     "command-line-args": "^5.2.1",

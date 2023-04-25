@@ -1,15 +1,15 @@
-const Client = require('node-rest-client').Client
+const { Client, } = require('node-rest-client')
 
-var client = new Client()
-client.get('http://localhost:8080/', function (data, response) {
-	console.log('siva '+data)
-});
+const client = new Client()
+client.get('http://localhost:8080/', (data) => {
+  console.log(`logger ${data}`)
+})
 
-var args = {
-	data: { test: 'hello' },
-	headers: { 'Content-Type': 'application/json' },
-};
+const args = {
+  data: { test: 'hello', },
+  headers: { 'Content-Type': 'application/json', },
+}
 
-client.post('http://localhost:8080/', args, function (data, response) {
-	console.log('siva '+data)
-});
+client.post('http://localhost:8080/', args, (data) => {
+  console.log(`siva ${data}`)
+})

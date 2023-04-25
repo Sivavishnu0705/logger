@@ -11,5 +11,16 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    semi: ['error', 'never',],
+    'linebreak-style': 0,
+    'space-infix-ops': ['error', { int32Hint: false, },],
+    quotes: ['error', 'single',],
+    'comma-dangle': ['error', {
+      arrays: 'always',
+      objects: 'always',
+      imports: 'never',
+      exports: 'never',
+      functions: 'never',
+    },],
   },
-};
+}
