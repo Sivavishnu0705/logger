@@ -1,15 +1,15 @@
-const morgan = require('morgan');
-const express = require('express'), bodyParser = require('body-parser');
-const cors = require('cors');
-const commandLineArgs = require('command-line-args');
-const config = require('config');
+const morgan = require('morgan')
+const express = require('express'), bodyParser = require('body-parser')
+const cors = require('cors')
+const commandLineArgs = require('command-line-args')
+const config = require('config')
 const app = express()
-const logger = require('./logger.js');
-const CircularJSON = require('circular-json');
+const logger = require('./logger.js')
+const CircularJSON = require('circular-json')
 
 
-app.use(morgan('dev'));
-app.use(bodyParser.json());
+app.use(morgan('dev'))
+app.use(bodyParser.json())
 
 app.use((err, req, res, next) => {
     console.error(err.stack)
@@ -45,5 +45,5 @@ app.use((err, req, res, next) => {
 })
 
   app.listen(config.get('server.port'), function () {
-    console.log('app listening on port '+config.get('server.port'));
-  });
+    console.log('app listening on port '+config.get('server.port'))
+  })
