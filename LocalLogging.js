@@ -1,5 +1,19 @@
 const config = require('config');
-exports.log = function(req, res){
+class LocalLogging {
+   mInstance;
+
+    constructor() { }
+
+    static getInstance() {
+        if (this._instance) {
+            return this._instance;
+        }
+
+        this._instance = new LocalLogging();
+        return this._instance;
+    }
+
+  log(req, res){
     const winston = require('winston');
     require('winston-daily-rotate-file');
     
@@ -17,4 +31,7 @@ exports.log = function(req, res){
       transports: [fileRotateTransport],
     });
     logger.info('Request : '+JSON.stringify(req.body)+', Response : '+res);
+
+  }
 }
+module.exports = LocalLogging.getInstance();

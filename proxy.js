@@ -4,7 +4,7 @@ const cors = require('cors');
 const commandLineArgs = require('command-line-args');
 const config = require('config');
 const app = express()
-const localLogger = require('./local_logging.js');
+const localLogging = require('./LocalLogging.js');
 const logger = require('./logger.js');
 const CircularJSON = require('circular-json');
 const httpProxy = require('http-proxy');
@@ -30,7 +30,7 @@ app.use((req, res, next) => {
   app.get('/', (req, res) => {
     client.get(config.get('server.host')+':'+config.get('server.port')+'/', function (data, response) {
         colouredLog(req,res);
-        localLogger.log(req,data);
+        localLogging.log(req,data);
         res.send(data)
     });  
 })
