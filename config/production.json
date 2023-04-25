@@ -1,8 +1,12 @@
 {
     "server": {
-      "host": "localhost",
+      "host": "http://localhost",
       "port": 8081,
       "url":"",
       "rotating_logs_expiry":"1d"
+    },
+    "proxy":{
+      "host":"http://127.0.0.1",
+      "port":8083
     }
 }
